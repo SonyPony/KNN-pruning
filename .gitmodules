@@ -1,0 +1,4 @@
+[submodule "shrinkbench"]
+	path = shrinkbench
+	url = https://github.com/SonyPony/shrinkbench
+	branch = feature-lottery-ticket
