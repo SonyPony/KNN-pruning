@@ -11,7 +11,8 @@ os.environ["WEIGHTSPATH"] = "../pretrained"
 
 # settings
 STRATEGY = "GlobalMagWeight"
-COMPRESSION = 4
+P_PERC = 0.1
+COMPRESSION = 1 / P_PERC
 
 if __name__ == "__main__":
     exp = LotteryTicketExperiment(
