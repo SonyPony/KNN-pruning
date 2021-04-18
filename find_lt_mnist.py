@@ -11,7 +11,7 @@ os.environ["WEIGHTSPATH"] = "../pretrained"
 
 # settings
 STRATEGY = "GlobalMagWeight"
-P_PERC = 0.1
+P_PERC = 0.7#0.02
 COMPRESSION = 1 / P_PERC
 
 if __name__ == "__main__":
@@ -20,14 +20,17 @@ if __name__ == "__main__":
         model="MnistNet",
         strategy=STRATEGY,
         compression=COMPRESSION,
-        train_kwargs={"epochs": 10},
-        run_on_device=False,
-        pretrained=False
+        train_kwargs={"epochs": 5,},
+        dl_kwargs={"split_ratio": 0.8, "num_workers": 4},
+        run_on_device=True,
+        pretrained=False,
+        logging=False,
+        pruning_rate=0.15
     )
 
     exp.run()
 
 # plot results
-df = df_from_results('../results')
-plot_df(df, 'compression', 'pre_acc5', markers='strategy', line='--', colors='strategy', suffix=' - pre')
-plot_df(df, 'compression', 'post_acc5', markers='strategy', fig=False, colors='strategy')
+#df = df_from_results('../results')
+#plot_df(df, 'compression', 'pre_acc5', markers='strategy', line='--', colors='strategy', suffix=' - pre')
+#plot_df(df, 'compression', 'post_acc5', markers='strategy', fig=False, colors='strategy')
