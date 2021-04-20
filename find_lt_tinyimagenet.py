@@ -25,7 +25,8 @@ if __name__ == "__main__":
         run_on_device=True,
         pretrained=False,
         logging=False,
-        pruning_rate=0.15
+        pruning_rate=0.15,
+        lr_factor=0.2
     )
 
     exp.run()
