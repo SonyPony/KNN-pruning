@@ -56,7 +56,7 @@ max_pruning_level = max(pruning_level_list)
 main_plt.grid(linestyle="--")
 main_plt.set_xlim((min(steps), max(steps)))
 main_plt.set_xlabel("Iteration")
-main_plt.set_ylabel("Test Accuracy")
+main_plt.set_ylabel("Validation Top-1 Accuracy")
 
 # hightlight some values
 base_model_line_color = (0, 0, 0)
