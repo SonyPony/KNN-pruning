@@ -6,12 +6,13 @@ from json import loads
 from operator import itemgetter
 from matplotlib.lines import Line2D
 
-
-with open("../../result/pruning_training_course_table_elated_water_37.json", "r") as f:
+"pruning_training_course_table_ethereal_voice_62"
+"pruning_training_course_table_charmed_glitter_47"
+with open("../../result/pruning_training_course_table_ethereal_voice_62.json", "r") as f:
     data = loads(f.read())
 
-suffix_to_remove = "train"
-suffix_to_keep = list({"val", "train"} - {suffix_to_remove})[0]
+suffix_to_keep = "val"
+suffix_to_remove = list({"val", "train"} - {suffix_to_keep})[0]
 data = data.get("data")
 
 # filter data with specific suffix
@@ -41,6 +42,8 @@ for data_point in data:
 
 steps = sorted(list(steps))
 
+pruning_dec_places = len(tuple(formatted_data.keys())[0].split(".")[1])
+print(pruning_dec_places)
 # sort by iteration step
 for key, samples in formatted_data.items():
     formatted_data[key] = sorted(list(samples), key=lambda x: x[0])
@@ -65,15 +68,15 @@ top_acc_line_color = (0.21960784, 0.78039216, 0.63137255)
 custom_lines = [Line2D([0], [0], color=top_acc_line_color, lw=2, linestyle="-."),
                 Line2D([0], [0], color=base_model_line_color, lw=2, linestyle="-.")]
 
-main_plt.axhline(y=max(formatted_data.get("1.00")), xmin=0, xmax=max(steps), linewidth=1, linestyle="-.", color=base_model_line_color)
-main_plt.axhline(y=best_acc, xmin=0, xmax=max(steps), linewidth=1, linestyle="-.", color=top_acc_line_color)
-
 # main plot
 for pruning_level, accs in formatted_data.items():
     pruning_level = float(pruning_level)
 
     cmap_level = (pruning_level) / max_pruning_level
     main_plt.plot(steps, accs, color=cmap(cmap_level))
+
+main_plt.axhline(y=max(formatted_data.get("1.{}".format('0' * pruning_dec_places))), xmin=0, xmax=max(steps), linewidth=1, linestyle="-.", color=base_model_line_color)
+main_plt.axhline(y=best_acc, xmin=0, xmax=max(steps), linewidth=1, linestyle="-.", color=top_acc_line_color)
 
 main_plt.legend(custom_lines, ["$P_m$ = {:.1f}%".format(best_p_m * 100), "$P_m$ = 100%"])
 
