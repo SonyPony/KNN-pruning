@@ -1,7 +1,7 @@
 # Dependencies
 this project is dependent on ShrinkBench, for proper instalation follow their instructions at https://github.com/SonyPony/shrinkbench/tree/47dd89ee4d44fefd34c2c900a23b4f3dd0ac785c
 
-# Lottery ticket na MNISTnet
+# Lottery ticket on MNIST
 usage:
 
 ```
