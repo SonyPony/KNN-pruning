@@ -130,3 +130,5 @@ dmypy.json
 results/
 .idea/
 wandb/
+*.pdf
+plot/
