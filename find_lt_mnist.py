@@ -12,6 +12,7 @@ parser.add_argument('-m', '--model', help='path to stored weights', required=Tru
 parser.add_argument('--epochs', help='number of epochs', default=5)
 parser.add_argument('--p_rate', help='prune percentage at each prune iteration', default=0.15)
 parser.add_argument('--p_perc', help='desired prune percentage', default=0.7)
+parser.add_argument('--lr', type=float, help='learning rate', default=0.01)
 parser.add_argument('--strategy', help='pruning strategy [GlobalMagWeight|LayerMagWeight]', default='GlobalMagWeight') 
 
 args = parser.parse_args()
@@ -29,7 +30,7 @@ if __name__ == "__main__":
         model="MnistNet",
         strategy=args.strategy,
         compression=COMPRESSION,
-        train_kwargs={"epochs": args.epochs,},
+        train_kwargs={"epochs": args.epochs, "lr": args.lr},
         dl_kwargs={"split_ratio": 0.8, "num_workers": 4},
         run_on_device=True,
         pretrained=False,
