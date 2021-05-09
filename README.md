@@ -4,7 +4,9 @@ this project is dependent on ShrinkBench, for proper instalation follow their in
 # Lottery ticket na MNISTnet
 usage:
 
+```
 find_lt_mnist.py -d DATA -m MODEL [--epochs EPOCHS] [--p_rate P_RATE] [--p_perc P_PERC] [--lr LR ] [--strategy STRATEGY]
+```
 
 DATA - path to training data folder
 MODEL - path to trained model weights
@@ -17,7 +19,9 @@ STRATEGY - prunning strategy [GlobalMagWeight|LayerMagWeight]
 # Lottery ticket on tinyImageNet
 usage:
 
+```
 find_lt_tinyimagenet.py -d DATA -m MODEL [--epochs EPOCHS] [--p_rate P_RATE] [--p_perc P_PERC] [--lr LR ] [--strategy STRATEGY]
+```
 
 DATA - path to training data folder
 MODEL - path to trained model weights
