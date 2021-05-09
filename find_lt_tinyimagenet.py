@@ -6,7 +6,7 @@ from shrinkbench.plot import plot_df, df_from_results
 
 multiprocessing.freeze_support()
 
-parser = argparse.ArgumentParser(description='Lottery ticket on MNIST Net')
+parser = argparse.ArgumentParser(description='Lottery ticket on tinyImageNet')
 parser.add_argument('-d', '--data', type=str, help='path to training data folder', required=True)
 parser.add_argument('-m', '--model', type=str, help='path to stored weights', required=True)
 parser.add_argument('--epochs', type=int, help='number of epochs', default=5)
