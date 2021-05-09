@@ -16,7 +16,7 @@ P_PERC - desired final prunning percentage
 LR - learning rate
 STRATEGY - prunning strategy [GlobalMagWeight|LayerMagWeight]
 
-# Lottery ticket on tinyImageNet
+# Lottery ticket on Tiny ImageNet
 usage:
 
 ```
